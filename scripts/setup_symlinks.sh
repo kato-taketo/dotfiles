@@ -113,6 +113,21 @@ link_to_claude_dir() {
   done
 }
 
+install_hammerspoon() {
+  if ! command -v brew &> /dev/null; then
+    log_info "Homebrew not found. Please install Homebrew first."
+    return 1
+  fi
+
+  if ! brew list --cask hammerspoon &> /dev/null; then
+    log_info "Installing Hammerspoon..."
+    brew install --cask hammerspoon
+    log_pass "Hammerspoon installed successfully! ✔"
+  else
+    log_info "Hammerspoon is already installed ✔"
+  fi
+}
+
 setup_symlinks() {
   log_info "Start setup symbolic link..."
   link_to_home
@@ -120,6 +135,7 @@ setup_symlinks() {
   link_to_claude_dir
   if is_darwin; then
     link_to_vscode_setting_dir
+    install_hammerspoon
   fi
   log_pass "Setup symbolic links complete! ✔"
 }

@@ -63,7 +63,6 @@ target_brew_list_for_mac_os=(
 target_brew_cask_list=(
   alfred
   clipy
-  hammerspoon
   iterm2
   karabiner-elements
   visual-studio-code
@@ -90,10 +89,14 @@ install_brew_packages() {
     done
 
     for target in ${target_brew_cask_list[@]}; do
-      if ! is_exists "$target"; then
-        brew install --cask $target
+      if ! brew list --cask "$target" &> /dev/null; then
+        if [ "$target" = "visual-studio-code" ] && [ -d "/Applications/Visual Studio Code.app" ]; then
+          log_info "Visual Studio Code is already installed manually, skipping homebrew installation."
+        else
+          brew install --cask $target
+        fi
       else
-        log_info "$target has been already installed."
+        log_info "$target has been already installed via Homebrew."
       fi
     done
   fi

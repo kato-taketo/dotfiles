@@ -8,8 +8,8 @@ units = {
 }
 
 mash = { 'shift', 'cmd' }
-hs.hotkey.bind(mash, 'l', function() hs.window.focusedWindow():move(units.right50,    nil, true) end)
-hs.hotkey.bind(mash, 'h', function() hs.window.focusedWindow():move(units.left50,     nil, true) end)
-hs.hotkey.bind(mash, 'k', function() hs.window.focusedWindow():move(units.top50,      nil, true) end)
-hs.hotkey.bind(mash, 'j', function() hs.window.focusedWindow():move(units.bot50,      nil, true) end)
-hs.hotkey.bind(mash, 'm', function() hs.window.focusedWindow():move(units.maximum,  nil, true) end)
+hs.hotkey.bind(mash, 'l', function() hs.window.focusedWindow():moveToUnit(units.right50) end)
+hs.hotkey.bind(mash, 'h', function() hs.window.focusedWindow():moveToUnit(units.left50) end)
+hs.hotkey.bind(mash, 'k', function() hs.window.focusedWindow():moveToUnit(units.top50) end)
+hs.hotkey.bind(mash, 'j', function() hs.window.focusedWindow():moveToUnit(units.bot50) end)
+hs.hotkey.bind(mash, 'm', function() hs.window.focusedWindow():moveToUnit(units.maximum) end)
