@@ -1,6 +1,6 @@
 #!/bin/bash -u
 
-DOTFILES_DIR="$HOME/src/github.com/UTDoi/dotfiles"
+DOTFILES_DIR="$HOME/src/github.com/kato-taketo/dotfiles"
 source $DOTFILES_DIR/scripts/utils.sh
 
 # CUI tools

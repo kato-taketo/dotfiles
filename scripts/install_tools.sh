@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-DOTFILES_DIR="$HOME/src/github.com/UTDoi/dotfiles"
+DOTFILES_DIR="$HOME/src/github.com/kato-taketo/dotfiles"
 
 source $DOTFILES_DIR/scripts/utils.sh
 source $DOTFILES_DIR/scripts/install_brew_packages.sh

@@ -1,7 +1,7 @@
 #!/bin/bash -ue
 
-DOTFILES_DIR="$HOME/src/github.com/UTDoi/dotfiles"
-DOT_REMOTE_URL="https://github.com/UTDoi/dotfiles.git"
+DOTFILES_DIR="$HOME/src/github.com/kato-taketo/dotfiles"
+DOT_REMOTE_URL="https://github.com/kato-taketo/dotfiles.git"
 
 is_exists() {
   type "$1" >/dev/null 2>&1

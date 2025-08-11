@@ -10,7 +10,7 @@ xcode-select --install
 ## install
 Execute this one-liner.
 ```
-$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/UTDoi/dotfiles/master/install.sh)"
+$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/kato-taketo/dotfiles/master/install.sh)"
 ```
 
 After installed, you can execute command like this to re-symlink files.

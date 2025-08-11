@@ -42,5 +42,5 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/yutaro-doi/.rd/bin:$PATH"
+export PATH="/Users/t-kato/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

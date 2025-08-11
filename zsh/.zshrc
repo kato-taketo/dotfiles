@@ -142,11 +142,11 @@ fi
   alias j='z'
   alias vi='nvim'
   alias vim='nvim'
-  alias pr='gh pr list --assignee UTDoi | fzf | cut -f1 | xargs -I {} gh pr checkout {}'
+  alias pr='gh pr list --assignee kato-taketo | fzf | cut -f1 | xargs -I {} gh pr checkout {}'
   alias gimtag='aws ecr describe-images --repository-name cfoalpha-app --image-ids imageTag=latest | jq -r ".imageDetails[].imageTags"'
   alias dcns='docker ps | awk '\''{print $2}'\'''
   alias g='git'
-  alias rcode='code --remote ssh-remote+yutaro-doi-eng-dev'
+  alias rcode='code --remote ssh-remote+t-kato-eng-dev'
 
   if is_linux; then
     alias bat='batcat'
