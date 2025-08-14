@@ -52,6 +52,10 @@ setup_mac_os_config() {
   keyboardid=$(ioreg -n IOHIDKeyboard -r | grep -E 'VendorID"|ProductID' | awk '{ print $4 }' | paste -s -d'-\n' -)'-0'
   defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboardid} -array '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer> <key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'
 
+  # VSCode
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+  defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+
   for app in \
     "Dock" \
     "Finder" \
