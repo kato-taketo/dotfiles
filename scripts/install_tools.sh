@@ -29,14 +29,17 @@ install_tools() {
   fi
 
   if is_darwin; then
+    log_info "setup mac os config ..."
+    setup_mac_os_config
+
     log_info "installing vscode extensions ..."
     cat $DOTFILES_DIR/vscode/extensions | while read line
     do
-      code --install-extension $line
+      if [ ! -z "$line" ]; then
+        echo "Installing $line..."
+        code --install-extension $line || echo "Failed to install $line, skipping..."
+      fi
     done
-
-    log_info "setup mac os config ..."
-    setup_mac_os_config
 
     log_info "load iTerm2 custom plist ..."
     defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -bool true
