@@ -9,6 +9,11 @@
            "directory": "/tmp/ccls-cache"
          }
        }
+    },
+    "golang": {
+      "command": "/Users/t-kato/go/bin/gopls",
+      "filetypes": ["go"],
+      "rootPatterns": ["go.mod", "go.sum", ".git/"]
     }
   }
 }

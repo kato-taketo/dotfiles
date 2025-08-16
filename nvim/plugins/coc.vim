@@ -1,7 +1,8 @@
 let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-sh',
-  \ 'coc-yaml'
+  \ 'coc-yaml',
+  \ 'coc-go'
   \]
 
 inoremap <silent><expr> <TAB>

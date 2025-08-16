@@ -84,6 +84,14 @@
     {
       "before": ["<C-k>"],
       "after": ["g", "b"]
+    },
+    {
+      "before": ["t", "h"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["t", "l"],
+      "commands": ["workbench.action.nextEditor"]
     }
   ],
   "vim.visualModeKeyBindings": [
@@ -113,6 +121,25 @@
   "vim.useCtrlKeys": true,
   "vim.statusBarColorControl": false,
   "vim.enableNeovim": true,
+  "vim.foldfix": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "t"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    }
+  ],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
@@ -125,5 +152,34 @@
   "github.copilot.chat.localeOverride": "ja",
   "github.copilot.editor.enableAutoCompletions": true,
   "application.shellEnvironmentResolutionTimeout": 30,
-  "go.testEnvFile": "${workspaceFolder}/.env.private"
+  "go.testEnvFile": "${workspaceFolder}/.env.private",
+  "go.gopath": "/Users/t-kato/go",
+  "go.formatTool": "goimports",
+  "go.lintTool": "golangci-lint",
+  "go.buildTags": "",
+  "go.toolsManagement.checkForUpdates": "local",
+  "go.useLanguageServer": true,
+  "go.alternateTools": {
+    "go": "/opt/homebrew/bin/go"
+  },
+  "go.goroot": "",
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false
+  },
+  "[go.mod]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.showPushSuccessNotification": true,
+  "scm.diffDecorations": "all",
+  "scm.diffDecorationsGutterVisibility": "always"
 }
