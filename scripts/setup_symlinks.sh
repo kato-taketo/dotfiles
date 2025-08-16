@@ -113,6 +113,19 @@ link_to_claude_dir() {
   done
 }
 
+link_mercari_configs() {
+  # Link Mercari-specific configuration files if they exist
+  if [ -f "$DOTFILES_DIR/.gitconfig.mercari" ]; then
+    ln -snfv "$DOTFILES_DIR/.gitconfig.mercari" "$HOME/.gitconfig.mercari"
+    log_info "Linked Mercari git configuration"
+  fi
+  
+  if [ -f "$DOTFILES_DIR/.zshenv.mercari" ]; then
+    ln -snfv "$DOTFILES_DIR/.zshenv.mercari" "$HOME/.zshenv.mercari"
+    log_info "Linked Mercari zsh environment configuration"
+  fi
+}
+
 install_hammerspoon() {
   if ! command -v brew &> /dev/null; then
     log_info "Homebrew not found. Please install Homebrew first."
@@ -133,6 +146,7 @@ setup_symlinks() {
   link_to_home
   link_to_config_dir
   link_to_claude_dir
+  link_mercari_configs
   if is_darwin; then
     link_to_vscode_setting_dir
     install_hammerspoon

@@ -42,3 +42,14 @@
   allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [include]
   path = ~/.gitconfig.local
+  path = ~/.gitconfig.mercari
+[commit]
+	gpgSign = true
+[tag]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /Users/t-kato/.ssh/allowed_signers
+[url "git@github.com:"]
+	insteadOf = https://github.com/

@@ -7,3 +7,6 @@ Brewfile.lock.json
 */.zcompcache/*
 .zsh_sessions
 .claude/settings.local.json
+# Mercari-specific settings
+.gitconfig.mercari
+.zshenv.mercari
