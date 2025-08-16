@@ -67,8 +67,6 @@
       "before": ["s", "p"],
       "after": ["<ctrl+w>", "p"]
     },
-    // This is a workaround for vscode 1.90 bug
-    // https://github.com/VSCodeVim/Vim/issues/9061
     {
       "before": ["<C-w>", "v"],
       "commands": ["workbench.action.splitEditor"]

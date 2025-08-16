@@ -92,8 +92,26 @@ link_to_config_dir() {
 
 link_to_vscode_setting_dir() {
   for TARGET_VSCODE_SETTING_FILE in ${TARGET_VSCODE_SETTING_FILES[@]}; do
-    TARGET_PATH=`get_file_path_in_vscode_dir $TARGET_VSCODE_SETTING_FILE`
-    ln -snfv $TARGET_PATH "$VSCODE_SETTING_DIR"
+    if [ "$TARGET_VSCODE_SETTING_FILE" = "settings.json" ]; then
+      # Handle settings.json with potential Mercari merge
+      BASE_SETTINGS=`get_file_path_in_vscode_dir $TARGET_VSCODE_SETTING_FILE`
+      MERCARI_SETTINGS="$DOTFILES_DIR/vscode/settings.mercari.json"
+      
+      if [ -f "$MERCARI_SETTINGS" ]; then
+        # Merge base settings with Mercari settings using jq
+        MERGED_SETTINGS="/tmp/vscode_settings_merged.json"
+        jq -s '.[0] * .[1]' "$BASE_SETTINGS" "$MERCARI_SETTINGS" > "$MERGED_SETTINGS"
+        ln -snfv "$MERGED_SETTINGS" "$VSCODE_SETTING_DIR/settings.json"
+        log_info "Merged VSCode settings with Mercari configuration"
+      else
+        # No Mercari settings, use base settings only
+        ln -snfv "$BASE_SETTINGS" "$VSCODE_SETTING_DIR"
+      fi
+    else
+      # Handle other VSCode setting files normally
+      TARGET_PATH=`get_file_path_in_vscode_dir $TARGET_VSCODE_SETTING_FILE`
+      ln -snfv $TARGET_PATH "$VSCODE_SETTING_DIR"
+    fi
   done
 }
 

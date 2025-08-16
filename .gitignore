@@ -10,3 +10,4 @@ Brewfile.lock.json
 # Mercari-specific settings
 .gitconfig.mercari
 .zshenv.mercari
+vscode/settings.mercari.json
