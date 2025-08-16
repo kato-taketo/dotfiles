@@ -36,7 +36,12 @@
   export LISTMAX=0
 }
 
-. $HOME/.local_zshenv
+: 'Go environment' && {
+  export GOPATH=$HOME/go
+  export PATH=$GOPATH/bin:$PATH
+}
+
+[ -f "$HOME/.local_zshenv" ] && . $HOME/.local_zshenv
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
