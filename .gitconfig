@@ -1,6 +1,7 @@
 [user]
   name = kato-taketo
   email = take10tokyohk@gmail.com
+  signingKey = key::ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBcDy6b2fRGAYhGgKNbDjBkudW9VWFoJfFmP3827ZkG7ThQGBN77X15ftmH96tZNofD6BB7sxdTdvh2XuHW8RYs= t-kato@mc-F54721D7KL
 [color]
   ui = auto
 [core]

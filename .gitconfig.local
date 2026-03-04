@@ -1,2 +1,1 @@
-[user]
-  signingKey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3kRu1r6cn4zSEvoN1MZgS8DIV4XgMSVuPwSUwEnxCt take10tokyohk@gmail.com
+# Personal git config (no signingKey override - uses global mercari key)
