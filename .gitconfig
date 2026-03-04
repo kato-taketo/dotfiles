@@ -42,6 +42,9 @@
   allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [include]
   path = ~/.gitconfig.local
+[includeIf "gitdir:~/src/github.com/kouzoh/"]
+  path = ~/.gitconfig.mercari
+[includeIf "gitdir:~/src/github.com/kouzoh-mercoin/"]
   path = ~/.gitconfig.mercari
 [commit]
 	gpgSign = true

@@ -137,10 +137,18 @@ link_mercari_configs() {
     ln -snfv "$DOTFILES_DIR/.gitconfig.mercari" "$HOME/.gitconfig.mercari"
     log_info "Linked Mercari git configuration"
   fi
-  
+
   if [ -f "$DOTFILES_DIR/.zshenv.mercari" ]; then
     ln -snfv "$DOTFILES_DIR/.zshenv.mercari" "$HOME/.zshenv.mercari"
     log_info "Linked Mercari zsh environment configuration"
+  fi
+}
+
+link_git_local_config() {
+  # Link personal git config
+  if [ -f "$DOTFILES_DIR/.gitconfig.local" ]; then
+    ln -snfv "$DOTFILES_DIR/.gitconfig.local" "$HOME/.gitconfig.local"
+    log_info "Linked personal git configuration"
   fi
 }
 
@@ -165,6 +173,7 @@ setup_symlinks() {
   link_to_config_dir
   link_to_claude_dir
   link_mercari_configs
+  link_git_local_config
   if is_darwin; then
     link_to_vscode_setting_dir
     install_hammerspoon
