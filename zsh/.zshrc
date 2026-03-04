@@ -254,6 +254,43 @@ fi
   zle -N select_worktree
 }
 
+: 'claude code switching (company/personal)' && {
+  claude() {
+    local token_file="$HOME/.claude/.anthropic_token_work"
+    if [[ "$PWD" == */src/github.com/kouzoh/* ]] || \
+       [[ "$PWD" == */src/github.com/kouzoh-mercoin/* ]]; then
+      if [[ -f "$token_file" ]]; then
+        echo "[claude] Using company LiteLLM proxy (mercari)"
+        ANTHROPIC_BASE_URL="https://litellm.mercari.in" \
+        ANTHROPIC_AUTH_TOKEN="$(cat "$token_file")" \
+        command claude "$@"
+      else
+        echo "Error: Work token not found at $token_file"
+        echo "Run: claude-refresh-token"
+        return 1
+      fi
+    else
+      command claude "$@"
+    fi
+  }
+
+  claude-refresh-token() {
+    local token_file="$HOME/.claude/.anthropic_token_work"
+    echo "Running merctl configure llm to refresh token..."
+    merctl configure llm
+    echo ""
+    echo "Paste the new API Key below (then press Enter):"
+    read -r new_token
+    if [[ -n "$new_token" ]]; then
+      echo "$new_token" > "$token_file"
+      chmod 600 "$token_file"
+      echo "Token saved to $token_file"
+    else
+      echo "No token provided. Aborted."
+    fi
+  }
+}
+
 : 'bindkeys' && {
   bindkey '^a' beginning-of-line
   bindkey '^b' backward-char
@@ -334,4 +371,4 @@ fi
   }
 }
 
-. $HOME/.local_zshrc
+[ -f "$HOME/.local_zshrc" ] && . "$HOME/.local_zshrc"

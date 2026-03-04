@@ -7,6 +7,7 @@ Brewfile.lock.json
 */.zcompcache/*
 .zsh_sessions
 .claude/settings.local.json
+.claude/.anthropic_token_work
 # Mercari-specific settings
 .gitconfig.mercari
 .zshenv.mercari
