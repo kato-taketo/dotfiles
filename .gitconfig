@@ -57,3 +57,9 @@
 	allowedSignersFile = /Users/t-kato/.ssh/allowed_signers
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[url "git@github.com-mercari:kouzoh-mercoin/"]
+	insteadOf = https://github.com/kouzoh-mercoin/
+[url "git@github.com-mercari:kouzoh/"]
+	insteadOf = https://github.com/kouzoh/

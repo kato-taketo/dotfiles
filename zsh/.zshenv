@@ -41,6 +41,10 @@
   export PATH=$GOPATH/bin:$PATH
 }
 
+: 'local bin (claude code etc.)' && {
+  export PATH="$HOME/.local/bin:$PATH"
+}
+
 [ -f "$HOME/.local_zshenv" ] && . $HOME/.local_zshenv
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"

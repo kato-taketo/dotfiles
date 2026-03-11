@@ -256,13 +256,15 @@ fi
 
 : 'claude code switching (company/personal)' && {
   claude() {
-    local token_file="$HOME/.claude/.anthropic_token_work"
+    local token_file="$HOME/.claude/.litellm_token"
     if [[ "$PWD" == */src/github.com/kouzoh/* ]] || \
        [[ "$PWD" == */src/github.com/kouzoh-mercoin/* ]]; then
       if [[ -f "$token_file" ]]; then
+        local token
+        token=$(tr -d '[:space:]' < "$token_file")
         echo "[claude] Using company LiteLLM proxy (mercari)"
         ANTHROPIC_BASE_URL="https://litellm.mercari.in" \
-        ANTHROPIC_AUTH_TOKEN="$(cat "$token_file")" \
+        ANTHROPIC_AUTH_TOKEN="$token" \
         command claude "$@"
       else
         echo "Error: Work token not found at $token_file"
@@ -275,7 +277,7 @@ fi
   }
 
   claude-refresh-token() {
-    local token_file="$HOME/.claude/.anthropic_token_work"
+    local token_file="$HOME/.claude/.litellm_token"
     echo "Running merctl configure llm to refresh token..."
     merctl configure llm
     echo ""
